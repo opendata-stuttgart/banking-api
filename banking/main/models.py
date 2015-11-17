@@ -5,7 +5,7 @@ from django_extensions.db.models import TimeStampedModel
 class Bank(TimeStampedModel):
     name = models.CharField(max_length=1000)
     blz = models.CharField(max_length=20)
-    bic = models.CharField(max_length=20)
+    bic = models.CharField(max_length=20, null=True, blank=True)
     zipcode = models.CharField(max_length=10)
     city = models.CharField(max_length=1000)
     short_description = models.CharField(max_length=1000)
