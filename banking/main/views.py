@@ -2,7 +2,7 @@ import django_filters
 from rest_framework import mixins, viewsets, filters, pagination
 
 from .models import Bank
-from .serializers import BankSerializer
+from .serializers import BankSerializer, IbanSerializer
 
 
 class StandardResultsSetPagination(pagination.PageNumberPagination):
@@ -25,3 +25,8 @@ class BankView(mixins.ListModelMixin,
     pagination_class = StandardResultsSetPagination
     filter_backends = (filters.DjangoFilterBackend, )
     filter_class = BankFilter
+
+
+class IbanView(mixins.CreateModelMixin,
+               viewsets.GenericViewSet):
+    serializer_class = IbanSerializer

@@ -3,7 +3,7 @@
 ## about
 
 - search all German banks for: BIC, BLZ, zipcode and City
-- [TODO] calculate IBAN out of BLZ and account number
+- calculate IBAN with BLZ, account number and country code
 
 
 ## datasource
@@ -13,9 +13,23 @@ http://www.bundesbank.de/Redaktion/DE/Standardartikel/Aufgaben/Unbarer_Zahlungsv
 
 ## Example API usage:
 
+### blz/bic
+
 ```
-/v1/bank?blz=10000000
-/v1/bank?bic=MARKDEF1100
-/v1/bank?city=Berlin
-/v1/bank?zipcode=10117
+http://localhost:8000/v1/bank?blz=10000000
+http://localhost:8000/v1/bank?bic=MARKDEF1100
+http://localhost:8000/v1/bank?city=Berlin
+http://localhost:8000/v1/bank?zipcode=10117
+```
+
+### iban
+
+```
+curl --request POST --url http://localhost:8000/v1/iban/ --header 'Content-Type: application/json' -- data '{"country": "DE", "blz": "64090100", "account_number": "1234567"}'
+```
+
+returns
+
+```
+{"country":"DE","blz":"64090100","account_number":"1234567","iban":"DE80640901000001234567"}
 ```
