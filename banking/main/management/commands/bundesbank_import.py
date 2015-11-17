@@ -13,8 +13,8 @@ class Command(BaseCommand):
         for element in get_rows_from_blz_excel():
             d = extract_data(element)
             dataset_number = d.pop('dataset_number')
-            if not d['bic'] and prev_bic:
+            if not d.get('bic') and prev_bic:
                 d['bic'] = prev_bic
-            b, x = Bank.objects.get_or_create(dataset_number=dataset_number,
-                                              defaults=d)
+            b, x = Bank.objects.update_or_create(dataset_number=dataset_number,
+                                                 defaults=d)
             prev_bic = d['bic']
