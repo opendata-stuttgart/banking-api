@@ -1,3 +1,7 @@
 from django.contrib import admin
+from main.models import Bank
 
-# Register your models here.
+
+@admin.register(Bank)
+class BankAdmin(admin.ModelAdmin):
+    list_display = ('name', 'city', 'blz', 'bic')
