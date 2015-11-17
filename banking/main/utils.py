@@ -11,7 +11,19 @@ def get_rows_from_blz_excel(data_file=None):
         yield row
 
 
-def import_blz_to_database(data_file=None):
-    for row in get_rows_from_blz_excel(data_file):
-        assert False
-        pass
+def extract_data(row):
+    return {
+        'name': row['Bezeichnung'],
+        'blz': row['Bank-leitzahl'],
+        'bic': row['BIC'],
+        'zipcode': row['PLZ'],
+        'city': row['Ort'],
+        'short_description': row['Kurzbezeichnung'],
+        'pan': row['PAN'],
+        'check_calculation_method': row['Prüfziffer-berechnungs-methode'],
+        'dataset_number': row['Datensatz-nummer'],
+        'merkmal': row['Merkmal'],
+        'change_type': row['Änderungs-kennzeichen'],
+        'is_deletion': row['Bankleitzahl-löschung'],
+        'following_blz': row['Nachfolge-Bankleitzahl'],
+    }

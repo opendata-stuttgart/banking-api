@@ -1,13 +1,13 @@
 import os.path
 import pytest
-from main.utils import get_rows_from_blz_excel, import_blz_to_database
+from main.utils import get_rows_from_blz_excel, extract_data
 
 
 @pytest.fixture
 def one_line_xlsx():
-    return os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        'fixtures/',
-                        'one_line.xlsx')
+    return "file://" + os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                    'fixtures/',
+                                    'one_line.xlsx')
 
 
 class TestImportBlzFromExcel():
@@ -26,4 +26,8 @@ class TestImportBlzFromExcel():
             assert isinstance(row[key], value_type)
 
     def test_processing(self, one_line_xlsx):
-        import_blz_to_database(data_file=one_line_xlsx)
+        for row in get_rows_from_blz_excel(data_file=one_line_xlsx):
+            mapping = extract_data(row)
+            assert len(mapping) == 13
+            assert mapping['name'] == 'Bundesbank'
+            break
