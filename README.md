@@ -2,9 +2,8 @@
 
 ## about
 
-- blz -> bic
-- bic -> blz
-- iban rechner
+- search all German banks for: BIC, BLZ, zipcode and City
+- [TODO] calculate IBAN out of BLZ and account number
 
 
 ## datasource
