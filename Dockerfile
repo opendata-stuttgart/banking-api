@@ -18,6 +18,7 @@ WORKDIR /opt/code/banking
 
 # install uwsgi for production
 RUN pip3 install uwsgi
+EXPOSE 8008
 
 # uid1000 is created in aexea-base
 USER uid1000
