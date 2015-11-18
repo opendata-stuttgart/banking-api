@@ -7,4 +7,4 @@ mkdir -p /home/uid1000/banking/run
 chmod -R 777 /home/uid1000/banking/run
 python3 manage.py migrate
 python3 manage.py collectstatic --noinput
-gunicorn banking.wsgi:application --log-level=info --http 0.0.0.0:8000 --master --processes 4 --threads 2
+exec uwsgi --http 0.0.0.0:8000 --wsgi-file /opt/code/letusorderit/letusorderit/wsgi.py --master --processes 4 --threads 2

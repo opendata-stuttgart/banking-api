@@ -16,6 +16,9 @@ RUN chown -R uid1000: /opt
 
 WORKDIR /opt/code/banking
 
+# install uwsgi for production
+RUN pip3 install uwsgi
+
 # uid1000 is created in aexea-base
 USER uid1000
 
