@@ -23,7 +23,7 @@ http://www.bundesbank.de/Redaktion/DE/Standardartikel/Aufgaben/Unbarer_Zahlungsv
 ### iban
 
 ```
-curl --request POST --url http://banking.stupig.org/v1/iban/ --header 'Content-Type: application/json' -- data '{"country": "DE", "blz": "64090100", "account_number": "1234567"}'
+curl --request POST --url http://banking.stupig.org/v1/iban/ --header 'Content-Type: application/json' --data '{"country": "DE", "blz": "64090100", "account_number": "1234567"}'
 ```
 
 returns
