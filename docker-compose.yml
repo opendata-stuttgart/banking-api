@@ -1,6 +1,6 @@
 web:
   build: .
-  command: "runserver 0.0.0.0:8000"
+  command: "runserver 0.0.0.0:8010"
   environment:
       PYTHONUNBUFFERED: 0
       DJANGO_SETTINGS_MODULE: banking.settings.base
@@ -11,7 +11,7 @@ web:
   volumes:
    - .:/opt/code
   ports:
-   - "8000:8000"
+   - "8010:8010"
 data:
   image: aexea/aexea-base
   volumes:

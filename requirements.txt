@@ -11,4 +11,3 @@ pytest==2.6.3
 python-dateutil
 pytz
 xlrd==0.9.4
-gunicorn

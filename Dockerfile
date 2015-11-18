@@ -1,7 +1,10 @@
 FROM aexea/aexea-base
 MAINTAINER Stuttgart Python Interest Group
 
-EXPOSE 8000
+EXPOSE 8010
+
+# install uwsgi for production
+RUN pip3 install uwsgi
 
 USER root
 RUN apt-get update && apt-get install -y ttf-dejavu-core
@@ -15,10 +18,6 @@ ADD . /opt/code
 RUN chown -R uid1000: /opt
 
 WORKDIR /opt/code/banking
-
-# install uwsgi for production
-RUN pip3 install uwsgi
-EXPOSE 8008
 
 # uid1000 is created in aexea-base
 USER uid1000
