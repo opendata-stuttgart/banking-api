@@ -37,18 +37,17 @@ returns
 
 ```
 # database
-docker run -d --name banking-db-data -v /home/banking/postgres busybox
-docker run -d --restart=always --volumes-from banking-db-data --name banking-db postgres:9.4
+docker run -d --restart=always -v /home/banking/postgres:/var/lib/postgresql --name banking-db postgres:9.4
 
 # home
-docker run -d --name banking-data -v /home/uid1000 -v /home/banking/data:/home/uid1000/data aexea/aexea-base
+docker run -d --name banking-data -v /home/uid1000 -v /home/banking/data:/home/uid1000/banking/ aexea/aexea-base
 
 # python/nginx
 docker build --tag=banking-prod .
 docker rm -f banking
 docker run -d --volumes-from banking-data --link banking-db:db -v `pwd`/banking/banking/settings/production.py:/opt/code/banking/banking/settings/production.py --restart=always --name banking banking-prod
 docker rm -f banking-nginx
-docker run --name banking-nginx --link banking:banking --volumes-from banking-data -p 8082:80 -v `pwd`/nginx.conf:/etc/nginx/nginx.conf --restart=always -d nginx
+docker run --name banking-nginx --net="host" --link banking:banking --volumes-from banking-data -p 80:80 -v `pwd`/nginx.conf:/etc/nginx/nginx.conf --restart=always -d nginx
 ```
 
 initial database setup:
