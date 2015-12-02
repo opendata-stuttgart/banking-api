@@ -40,7 +40,7 @@ returns
 docker run -d --restart=always -v /home/banking/postgres:/var/lib/postgresql --name banking-db postgres:9.4
 
 # home
-docker run -d --name banking-data -v /home/uid1000 -v /home/banking/data:/home/uid1000/banking/ aexea/aexea-base
+docker run -d --name banking-data -v /home/uid1000 -v /home/banking/data:/home/uid1000/banking aexea/aexea-base
 
 # python/nginx
 docker build --tag=banking-prod .
