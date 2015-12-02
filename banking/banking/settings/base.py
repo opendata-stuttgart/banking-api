@@ -1,4 +1,5 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from os.path import normpath, join
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,7 +47,7 @@ ROOT_URLCONF = 'banking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [normpath(join(SITE_ROOT, 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
