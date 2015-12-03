@@ -11,3 +11,4 @@ python-dateutil
 pytz
 xlrd==0.9.4
 gunicorn
+markdown
