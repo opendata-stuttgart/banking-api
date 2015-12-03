@@ -20,6 +20,11 @@ class BankFilter(django_filters.FilterSet):
 class BankView(mixins.ListModelMixin,
                mixins.RetrieveModelMixin,
                viewsets.GenericViewSet):
+    """
+    Shows all banks in Germany based on data from Bundesbank.
+
+    The data can be filtered based on blz, bic, city and zipcode.
+    """
     serializer_class = BankSerializer
     queryset = Bank.objects.all()
     pagination_class = StandardResultsSetPagination
@@ -29,4 +34,11 @@ class BankView(mixins.ListModelMixin,
 
 class IbanView(mixins.CreateModelMixin,
                viewsets.GenericViewSet):
+    """
+    Returns an IBAN for given country code, blz and account number.
+
+    For more details on how this is calculated [see here][ref].
+
+    [ref]: https://en.wikipedia.org/wiki/International_Bank_Account_Number#Generating_IBAN_check_digits
+    """
     serializer_class = IbanSerializer
