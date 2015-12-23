@@ -15,15 +15,15 @@ http://www.bundesbank.de/Redaktion/DE/Standardartikel/Aufgaben/Unbarer_Zahlungsv
 
 ### blz/bic
 
-* http://banking.stupig.org/v1/bank?blz=10000000
-* http://banking.stupig.org/v1/bank?bic=MARKDEF1100
-* http://banking.stupig.org/v1/bank?city=Berlin
-* http://banking.stupig.org/v1/bank?zipcode=10117
+* https://banking.stupig.org/v1/bank?blz=10000000
+* https://banking.stupig.org/v1/bank?bic=MARKDEF1100
+* https://banking.stupig.org/v1/bank?city=Berlin
+* https://banking.stupig.org/v1/bank?zipcode=10117
 
 ### iban
 
 ```
-curl --request POST --url http://banking.stupig.org/v1/iban/ --header 'Content-Type: application/json' --data '{"country": "DE", "blz": "64090100", "account_number": "1234567"}'
+curl --request POST --url https://banking.stupig.org/v1/iban/ --header 'Content-Type: application/json' --data '{"country": "DE", "blz": "64090100", "account_number": "1234567"}'
 ```
 
 returns
