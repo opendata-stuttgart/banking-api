@@ -1,2 +1,3 @@
 __pycache__
 banking/banking/settings/production.py
+nginx.sh
