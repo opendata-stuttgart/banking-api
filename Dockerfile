@@ -3,9 +3,6 @@ MAINTAINER Stuttgart Python Interest Group
 
 EXPOSE 8010
 
-# install uwsgi for production
-RUN pip3 install uwsgi
-
 USER root
 RUN apt-get update && apt-get install -y ttf-dejavu-core
 RUN easy_install3 -U pip
