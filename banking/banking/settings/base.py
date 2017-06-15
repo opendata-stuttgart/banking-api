@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     # DRF
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
     # Local apps
     'main',
 )
