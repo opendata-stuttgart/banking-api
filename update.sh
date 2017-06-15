@@ -2,7 +2,8 @@
 
 set -e
 
-#git pull
+git pull
+
 docker build --tag=banking-prod .
 docker rm -f banking
 docker run -d --volumes-from home-data --link banking-db:db -v `pwd`/banking/banking/settings/production.py:/opt/code/banking/banking/settings/production.py --restart=always --name banking banking-prod
