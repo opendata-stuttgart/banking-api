@@ -1,4 +1,4 @@
-FROM aexea/aexea-base
+FROM python:3.6
 MAINTAINER Stuttgart Python Interest Group
 
 EXPOSE 8010
