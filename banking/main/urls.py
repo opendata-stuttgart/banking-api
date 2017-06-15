@@ -10,5 +10,5 @@ router.register(r'bank', BankView)
 router.register(r'iban', IbanView, base_name='iban')
 
 urlpatterns = [
-    url(regex=r'^', view=include(router.urls)),
+    url(r'^', include(router.urls)),
 ]
