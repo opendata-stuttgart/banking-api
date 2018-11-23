@@ -15,6 +15,8 @@ http://www.bundesbank.de/Redaktion/DE/Standardartikel/Aufgaben/Unbarer_Zahlungsv
 
 ### blz/bic
 
+banking.stupig.org is offline atm.
+
 * https://banking.stupig.org/v1/bank?blz=10000000
 * https://banking.stupig.org/v1/bank?bic=MARKDEF1100
 * https://banking.stupig.org/v1/bank?city=Berlin
